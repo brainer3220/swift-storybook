@@ -22,39 +22,3 @@
 import Foundation
 
 @_exported import SwiftUI
-
-@freestanding(declaration)
-public macro StorybookPage(
-  title: String,
-  @ViewBuilder contents: @escaping @MainActor () -> any View
-) = #externalMacro(
-  module: "StorybookMacrosPlugin",
-  type: "StorybookPageMacro"
-)
-
-@freestanding(declaration)
-public macro StorybookPage<Target>(
-  target: Target.Type = Target.self,
-  @ViewBuilder contents: @escaping @MainActor () -> any View
-) = #externalMacro(
-  module: "StorybookMacrosPlugin",
-  type: "StorybookPageMacro"
-)
-
-@freestanding(expression)
-public macro StorybookPreview(
-  title: String,
-  @ViewBuilder contents: @escaping @MainActor () -> any View
-) -> AnyView = #externalMacro(
-  module: "StorybookMacrosPlugin",
-  type: "StorybookPreviewMacro"
-)
-
-@freestanding(expression)
-public macro StorybookPreview<Target>(
-  target: Target.Type = Target.self,
-  @ViewBuilder contents: @escaping @MainActor () -> any View
-) -> AnyView = #externalMacro(
-  module: "StorybookMacrosPlugin",
-  type: "StorybookPreviewMacro"
-)
